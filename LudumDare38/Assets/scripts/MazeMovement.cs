@@ -5,6 +5,7 @@ using UnityEngine;
 public class MazeMovement : MonoBehaviour {
 
     public float sensitivity = 1f;
+    public Vector3 rotationLimits;
     public bool cameraBasedRotation = false;
     public bool mouseBasedRotation = false;
 
@@ -35,6 +36,28 @@ public class MazeMovement : MonoBehaviour {
         //Giving it values
         rotation.x += sensitivity * Input.GetAxis("Mouse Y");
         rotation.z += -sensitivity * Input.GetAxis("Mouse X");
+        //Applying the max rotation
+        if (rotation.x > 0)
+        {
+            if (rotation.x > rotationLimits.x)
+                rotation.x = rotationLimits.x;
+        }
+        else
+        {
+            if (rotation.x < -1 * rotationLimits.x)
+                rotation.x = -1 * rotationLimits.x;
+        }
+
+        if (rotation.z > 0)
+        {
+            if (rotation.z > rotationLimits.z)
+                rotation.z = rotationLimits.z;
+        }
+        else
+        {
+            if (rotation.z < -1 * rotationLimits.z)
+                rotation.z = -1 * rotationLimits.z;
+        }
         //Applying the rotation
         transform.rotation = Quaternion.Euler(rotation);
     }
