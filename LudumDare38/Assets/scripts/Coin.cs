@@ -16,4 +16,11 @@ public class Coin : MonoBehaviour {
     {
         transform.eulerAngles += new Vector3(0, Time.deltaTime * rotationSpeed * 10, 0);
     }
+
+	void OnEnterTrigger() {
+		int player = 8;
+		if (GetComponent<Collider>().gameObject.layer == player) {
+//
+		}
+	}
 }

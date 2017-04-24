@@ -11,19 +11,16 @@ public class BulletBehaviour : MonoBehaviour {
 
     private void Awake()
     {
-        Destroy(gameObject, 5f);
+        Destroy(gameObject, 0.2f);
     }
 
     void FixedUpdate()
     {
-        transform.Translate (direction * speed);
+		transform.Translate (direction * speed, Space.World);
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        //Destroys the object that the bullet collides with
-        Destroy(collision.gameObject);
-        Destroy(gameObject);
-
+		Destroy (this.gameObject);
     }
 }
