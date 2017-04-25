@@ -1,9 +1,0 @@
-{
-"TOTAL_MEMORY": 268435456,
-"dataUrl": "WGLBuild.data.unityweb",
-"asmCodeUrl": "WGLBuild.asm.code.unityweb",
-"asmMemoryUrl": "WGLBuild.asm.memory.unityweb",
-"asmFrameworkUrl": "WGLBuild.asm.framework.unityweb",
-"splashScreenStyle": "Dark",
-"backgroundColor": "#222C36"
-}

@@ -1,0 +1,9 @@
+{
+"TOTAL_MEMORY": 268435456,
+"dataUrl": "TinyTony.data.unityweb",
+"asmCodeUrl": "TinyTony.asm.code.unityweb",
+"asmMemoryUrl": "TinyTony.asm.memory.unityweb",
+"asmFrameworkUrl": "TinyTony.asm.framework.unityweb",
+"splashScreenStyle": "Dark",
+"backgroundColor": "#222C36"
+}
