@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour {
 
-    public static ScoreManager instance;
 
     public int score;
+	public GameObject[] coins;
+	public Transform spawnLocation;
 
 	// Use this for initialization
 	void Awake () {
-        if (instance == null)
-            instance = this;
-        else
-            Debug.LogError("Manager Duplicado", gameObject);
-        instance.score = 0;
+		score = 0;
 	}
 	
-    public void ScoreUp(int value)
+	public void ScoreUp(int v, int g)
     {
-        instance.score += value;
+		score += v;
+		Vector3 random = new Vector3 (Random.Range (-10f, 10f), Random.Range (0, 10f), Random.Range (-10f, 10f));
+		GameObject coin = Instantiate (coins [g], spawnLocation.position + random, Quaternion.identity);
+		coin.transform.parent = GameController.instance.table.transform;
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class CrabMovement : MonoBehaviour {
 
     public Vector3 _sideSpeed;
+	public float speed = 1;
     public float switchSideDeltaTime;
 
 	private Vector3 sideSpeed;
@@ -20,7 +21,7 @@ public class CrabMovement : MonoBehaviour {
 
     void FixedUpdate()
     {
-		transform.Translate (sideSpeed, Space.World);
+		transform.Translate (sideSpeed.normalized * speed, Space.World);
     }
 
     void Move()

@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class BulletBehaviour : MonoBehaviour {
 
+	public float life = 1f;
     public float speed;
     //put a 1 on the desired direction
     public Vector3 direction;
 
 
-    private void Awake()
+    private void Start()
     {
-        Destroy(gameObject, 0.2f);
+        Destroy(gameObject, life);
     }
 
     void FixedUpdate()

@@ -9,9 +9,12 @@ public class EnemyShooting : MonoBehaviour {
     public GameObject bullet;
     public float shootingSpeed;
 	public float bulletSpeed;
+	public float bulletLife;
+	public bool disableCannon;
 
 
     private void Awake() {
+		disableCannon = false;
 		animController.speed = shootingSpeed;
 		Invoke("ShootAnimation", 1f / shootingSpeed);
     }
@@ -27,7 +30,10 @@ public class EnemyShooting : MonoBehaviour {
 		currentBullet.transform.LookAt (currentBullet.transform.position+transform.right);
 		currentBullet.GetComponent<BulletBehaviour> ().direction = transform.right;
 		currentBullet.GetComponent<BulletBehaviour> ().speed = bulletSpeed;
-		Invoke("ShootAnimation", 1f / shootingSpeed);
+		currentBullet.GetComponent<BulletBehaviour> ().life = bulletLife;
+		if (!disableCannon) {
+			Invoke ("ShootAnimation", 1f / shootingSpeed);
+		}
     }
 
 }

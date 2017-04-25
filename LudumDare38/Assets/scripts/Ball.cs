@@ -26,6 +26,10 @@ public class Ball : MonoBehaviour {
 		index = i;
 	}
 
+	public int getIndex() {
+		return index;
+	}
+
 	void OnCollisionEnter(Collision collision) {
 		if (collision.gameObject.layer == 9) {
 			GameController.instance.deadBall (index);
@@ -34,5 +38,10 @@ public class Ball : MonoBehaviour {
 
 	public void respawn(Vector3 spawnPosition) {
 		transform.position = new Vector3(spawnPosition.x, spawnPosition.y, spawnPosition.z);
+		GameController.instance.audio.playAudio (3);
+	}
+
+	public void kill() {
+		Destroy (gameObject);
 	}
 }
